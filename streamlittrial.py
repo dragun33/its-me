@@ -74,13 +74,13 @@ import streamlit as st
 
 # Title in teal with larger font size and bold styling
 st.markdown("""
-    <h1 style='color: teal; font-size: 60px; font-weight: bold; text-align: center;'>
+    <h1 style='color: #FF5733; font-size: 60px; font-weight: bold; text-align: center;'>
         Election Sentiment Analysis
     </h1>
 """, unsafe_allow_html=True)
 
 st.markdown("""
-    <h2 style='color: #c3195d; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
+    <h2 style='color: #FFC300 ; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
         Dive into the Pulse of the Nation – Sentiments, Reactions, and Emotions around the Latest Election Results!
     </h2>
 """, unsafe_allow_html=True)
