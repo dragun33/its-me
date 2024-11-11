@@ -91,7 +91,7 @@ st.markdown("""
 
 
 # Text area for inputting or pasting text
-text_input = st.text_area("Paste election-related text here:")
+text_input = st.text_area("Paste the text you wish to analyse here:")
 
 if st.button("Analyze Sentiments"):
     if text_input:
