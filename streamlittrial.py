@@ -80,7 +80,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
-    <h2 style='color: #FFA07A ; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
+    <h2 style='color: #581845 ; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
         Dive into the Pulse of the Nation – Sentiments, Reactions, and Emotions around the Latest Election Results!
     </h2>
 """, unsafe_allow_html=True)
