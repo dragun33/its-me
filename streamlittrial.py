@@ -24,15 +24,28 @@ def process_text(text_content):
     return [word for word in words if word not in stop_words]
 
 # Sentiment dictionary for categorizing words
-sentiment_dict = {
-    'modi': 'bjp', 'bjp win': 'bjp', 'narendra modi': 'bjp', 'trust modi': 'bjp',
-    'bjp defeat': 'anti-bjp', 'modi lose': 'anti-bjp', 'fake government': 'anti-bjp',
-    'rahul gandhi win': 'congress', 'congress lead': 'congress', 'congress gains': 'congress',
-    'congress defeat': 'anti-congress', 'rahul failed': 'anti-congress', 'sonia criticized': 'anti-congress',
-    'aap win': 'aap', 'arvind kejriwal': 'aap', 'kejriwal support': 'aap', 'aap defeat': 'anti-aap',
+sentiment_dict =    {
+    'modi': 'support', 'bjp': 'support', 'win': 'support', 'victory': 'support', 'trust': 'support',
+    'success': 'support', 'coalition': 'support', 'nda': 'support', 'people power': 'support',
+
+    # Criticism Terms
+    'defeat': 'criticism', 'lose': 'criticism', 'corruption': 'criticism', 'polarisation': 'criticism',
+    'failure': 'criticism', 'criticism': 'criticism', 'fraud': 'criticism', 'bribery': 'criticism',
+    'conspiracy': 'criticism', 'unfair': 'criticism', 'fake': 'criticism', 'fear': 'criticism',
+
+    # Mixed Sentiments
+    'hope': 'mixed sentiment', 'optimism': 'mixed sentiment', 'concern': 'mixed sentiment',
+    'uncertainty': 'mixed sentiment', 'doubt': 'mixed sentiment', 'expectation': 'mixed sentiment',
+    'confidence': 'mixed sentiment', 'public trust': 'mixed sentiment', 'vitality': 'mixed sentiment',
+    'diversity': 'mixed sentiment', 'federalism': 'mixed sentiment', 'livelihood': 'mixed sentiment',
+    'inflation': 'mixed sentiment', 'unemployment': 'mixed sentiment',
+
+    # Neutral Political Terms
     'candidate': 'neutral', 'voters': 'neutral', 'turnout': 'neutral', 'poll': 'neutral',
-    'hope': 'mixed', 'optimism': 'mixed', 'fear': 'mixed', 'concern': 'mixed', 'uncertainty': 'mixed'
+    'election': 'neutral', 'campaign': 'neutral', 'result': 'neutral', 'party': 'neutral',
+    'coalition government': 'neutral', 'democracy': 'neutral', 'public': 'neutral'
 }
+
 
 # Function to classify sentiments
 def classify_sentiments(words, sentiment_dict):
@@ -46,18 +59,39 @@ def classify_sentiments(words, sentiment_dict):
 # Function to plot sentiment analysis results
 def plot_sentiments(sentiment_counts, title="Sentiment Analysis"):
     fig, ax = plt.subplots()
-    ax.bar(sentiment_counts.keys(), sentiment_counts.values(), color='skyblue')
+    ax.bar(sentiment_counts.keys(), sentiment_counts.values(), color='turquoise')
     plt.xlabel("Sentiments")
     plt.ylabel("Count")
     plt.title(title)
     st.pyplot(fig)
-    plt.close(fig)  # Clear figure to prevent overlap in Streamlit
 
 # Streamlit UI
-st.title("Election Sentiment Analysis")
+
+import streamlit as st
+
+
+
+
+# Title in teal with larger font size and bold styling
+st.markdown("""
+    <h1 style='color: #C70039; font-size: 60px; font-weight: bold; text-align: center;'>
+        Election Sentiment Analysis
+    </h1>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    <h2 style='color: #581845 ; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
+        Dive into the Pulse of the Nation – Sentiments, Reactions, and Emotions around the Latest Election Results!
+    </h2>
+""", unsafe_allow_html=True)
+
+
+
+
+
 
 # Text area for inputting or pasting text
-text_input = st.text_area("Paste election-related text here:")
+text_input = st.text_area("Paste the text you wish to analyse here:")
 
 if st.button("Analyze Sentiments"):
     if text_input:
@@ -66,6 +100,7 @@ if st.button("Analyze Sentiments"):
         # Classify sentiments
         sentiment_counts = classify_sentiments(words, sentiment_dict)
         # Display sentiment analysis graph
-        plot_sentiments(sentiment_counts, title="Emotions on Results of Lok Sabha Election")
+        plot_sentiments(sentiment_counts, title="EMOTIONS ON RESULTS OF LOK SABHA ELECTION")
     else:
         st.write("Please paste some text to analyze.")
+
