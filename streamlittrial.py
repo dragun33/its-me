@@ -66,11 +66,15 @@ def plot_sentiments(sentiment_counts, title="Sentiment Analysis"):
     st.pyplot(fig)
 
 # Streamlit UI
-# Streamlit UI
-st.title("Election Sentiment Analysis", anchor="top", color="teal")
+
+import streamlit as st
+
+# Use Markdown to set the title with teal color
+st.markdown("<h1 style='color: teal;'>Election Sentiment Analysis</h1>", unsafe_allow_html=True)
 
 # Use Markdown to set subheading with maroon color
 st.markdown("<h2 style='color: maroon;'>Dive into the Pulse of the Nation – Sentiments, Reactions, and Emotions around the Latest Election Results!</h2>", unsafe_allow_html=True)
+
 
 
 # Text area for inputting or pasting text
