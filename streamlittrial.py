@@ -3,68 +3,67 @@ from collections import Counter
 import matplotlib.pyplot as plt
 import streamlit as st
 
-# Streamlit app UI
-st.title("Election Sentiment Analysis")
+# Sentiment Dictionary
+sentiment_dict = {
+    'modi': 'support', 'bjp': 'support', 'nda': 'support', 'amit shah': 'support',
+    'trust modi': 'support', 'win': 'support', 'victory': 'support', 'success': 'support',
+    'strong leadership': 'support', 'nationalist': 'support', 'growth': 'support',
+    'development': 'support', 'make in india': 'support', 'people power': 'support',
+    'coalition': 'support', 'progress': 'support', 'people’s choice': 'support',
+    'defeat': 'opposition', 'lose': 'opposition', 'corruption': 'opposition', 'polarisation': 'opposition',
+    'failure': 'opposition', 'fake': 'opposition', 'scam': 'opposition', 'fraud': 'opposition',
+    'unfair': 'opposition', 'bribery': 'opposition', 'conspiracy': 'opposition', 'fear': 'opposition',
+    'mismanagement': 'opposition', 'inefficiency': 'opposition', 'unemployment': 'opposition',
+    'inflation': 'opposition', 'poverty': 'opposition',
+    'election': 'neutral', 'candidate': 'neutral', 'voters': 'neutral', 'poll': 'neutral',
+    'turnout': 'neutral', 'democracy': 'neutral', 'result': 'neutral', 'public': 'neutral',
+    'campaign': 'neutral', 'party': 'neutral', 'manifesto': 'neutral', 'ballot': 'neutral',
+    'coalition government': 'neutral', 'manifesto': 'neutral', 'debate': 'neutral', 'agenda': 'neutral',
+    'vote': 'neutral', 'polling station': 'neutral', 'election commission': 'neutral',
+    'hope': 'mixed', 'optimism': 'mixed', 'concern': 'mixed', 'uncertainty': 'mixed',
+    'confidence': 'mixed', 'expectation': 'mixed', 'public trust': 'mixed', 'vitality': 'mixed'
+}
 
-# Text area for user input
-text_input = st.text_area("Paste election-related text here:")
+# Streamlit UI
+st.title("Election Result Sentiment Analysis")
 
-# Button to start sentiment analysis
+# Text input area
+text_input = st.text_area("Paste the election-related text here:")
+
+# Button to analyze sentiments
 if st.button("Analyze Sentiments"):
     if text_input:
-        # Convert text to lowercase
-        lower_case = text_input.lower()
-        
-        # Remove punctuation from the text
-        cleaned_text = lower_case.translate(str.maketrans('', '', string.punctuation))
-        
-        # Split text into words
-        tokenized_words = cleaned_text.split()
-        
-        # Define common stop words to remove
-        stop_words = {
-            "i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your", "yours", "yourself",
-            "yourselves", "he", "him", "his", "himself", "she", "her", "hers", "herself", "it", "its",
-            "itself", "they", "them", "their", "theirs", "themselves", "what", "which", "who", "whom",
-            "this", "that", "these", "those", "am", "is", "are", "was", "were", "be", "been", "being",
-            "have", "has", "had", "having", "do", "does", "did", "doing", "a", "an", "the", "and", "but",
-            "if", "or", "because", "as", "until", "while", "of", "at", "by", "for", "with", "about",
-            "against", "between", "into", "through", "during", "before", "after", "above", "below", "to",
-            "from", "up", "down", "in", "out", "on", "off", "over", "under", "again", "further", "then",
-            "once", "here", "there", "when", "where", "why", "how", "all", "any", "both", "each", "few",
-            "more", "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so", "than",
-            "too", "very", "s", "t", "can", "will", "just", "don", "should", "now"
-        }
-        
-        # Remove stop words
-        filtered_words = [word for word in tokenized_words if word not in stop_words]
-        
-        # Define sentiment dictionary for specific terms
-        sentiment_dict = {
-            'modi': 'bjp', 'bjp win': 'bjp', 'narendra modi': 'bjp', 'trust modi': 'bjp',
-            'bjp defeat': 'anti-bjp', 'modi lose': 'anti-bjp', 'fake government': 'anti-bjp',
-            'rahul gandhi win': 'congress', 'congress lead': 'congress', 'congress gains': 'congress',
-            'congress defeat': 'anti-congress', 'rahul failed': 'anti-congress', 'sonia criticized': 'anti-congress',
-            'aap win': 'aap', 'arvind kejriwal': 'aap', 'kejriwal support': 'aap', 'aap defeat': 'anti-aap',
-            'candidate': 'neutral', 'voters': 'neutral', 'turnout': 'neutral', 'poll': 'neutral',
-            'hope': 'mixed', 'optimism': 'mixed', 'fear': 'mixed', 'concern': 'mixed', 'uncertainty': 'mixed'
-        }
-        
-        # Classify each word into a sentiment category
-        sentiments = [sentiment_dict[word] for word in filtered_words if word in sentiment_dict]
-        
-        # Count the number of occurrences for each sentiment
-        sentiment_counts = Counter(sentiments)
-        
-        # Create a bar chart with sentiment categories and their counts
+        # Step 1: Clean and process the text
+        cleaned_text = text_input.lower().translate(str.maketrans('', '', string.punctuation))
+        words = cleaned_text.split()
+
+        # Step 2: Initialize an empty list to hold emotions
+        emotion_list = []
+
+        # Step 3: Iterate through each word in the processed text and classify sentiment
+        for word in words:
+            # Instead of checking all keys, check directly if any sentiment term is in the word
+            for key, sentiment in sentiment_dict.items():
+                if key in word:  # Match if the word contains any of the sentiment keys
+                    emotion_list.append(sentiment)  # Append the sentiment directly
+                    break  # Stop checking after a match is found
+
+        # Step 4: Count the occurrences of each sentiment using Counter
+        sentiment_count = Counter(emotion_list)
+
+        # Step 5: Display the sentiment counts
+        st.write(f"Support: {sentiment_count['support']}")
+        st.write(f"Opposition: {sentiment_count['opposition']}")
+        st.write(f"Neutral: {sentiment_count['neutral']}")
+        st.write(f"Mixed Sentiments: {sentiment_count['mixed']}")
+
+        # Step 6: Plot the sentiment counts in a bar chart
         fig, ax = plt.subplots()
-        ax.bar(sentiment_counts.keys(), sentiment_counts.values(), color='skyblue')
-        plt.xlabel("Sentiments")
+        ax.bar(sentiment_count.keys(), sentiment_count.values(), color='skyblue')
+        plt.xlabel("Sentiment")
         plt.ylabel("Count")
-        plt.title("EMOTIONS ON RESULTS OF LOK SABHA ELECTION")
-        
-        # Display the plot in the Streamlit app
+        plt.title("Election Sentiment Analysis")
         st.pyplot(fig)
     else:
-        # Prompt for text input if empty
         st.write("Please paste some text to analyze.")
+
