@@ -69,11 +69,25 @@ def plot_sentiments(sentiment_counts, title="Sentiment Analysis"):
 
 import streamlit as st
 
-# Use Markdown to set the title with teal color
-st.markdown("<h1 style='color: teal;'>Election Sentiment Analysis</h1>", unsafe_allow_html=True)
+import streamlit as st
 
-# Use Markdown to set subheading with maroon color
-st.markdown("<h2 style='color: maroon;'>Dive into the Pulse of the Nation – Sentiments, Reactions, and Emotions around the Latest Election Results!</h2>", unsafe_allow_html=True)
+# Title in teal with larger font size and bold styling
+st.markdown("""
+    <h1 style='color: teal; font-size: 48px; font-weight: bold; text-align: center;'>
+        Election Sentiment Analysis
+    </h1>
+""", unsafe_allow_html=True)
+
+# Subheading in maroon with a larger font size, italics, and some padding
+st.markdown("""
+    <h2 style='color: maroon; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
+        Dive into the Pulse of the Nation – Sentiments, Reactions, and Emotions around the Latest Election Results!
+    </h2>
+""", unsafe_allow_html=True)
+
+# Optional: Add some decorative line between the title and subheading for more separation
+st.markdown("<hr style='border: 2px solid teal;'>", unsafe_allow_html=True)
+
 
 
 
