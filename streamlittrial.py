@@ -57,21 +57,18 @@ if st.button("Analyze Sentiments"):
         st.write(f"Neutral: {sentiment_count['neutral']}")
         st.write(f"Mixed Sentiments: {sentiment_count['mixed']}")
 
-        
-# Title in teal with larger font size and bold styling
-st.markdown("""
-    <h1 style='color: #C70039; font-size: 60px; font-weight: bold; text-align: center;'>
-        Election Sentiment Analysis
-    </h1>
-""", unsafe_allow_html=True)
+        # Title in teal with larger font size and bold styling
+        st.markdown("""
+            <h1 style='color: #C70039; font-size: 60px; font-weight: bold; text-align: center;'>
+                Election Sentiment Analysis
+            </h1>
+        """, unsafe_allow_html=True)
 
-st.markdown("""
-    <h2 style='color: #581845 ; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
-        Dive into the Pulse of the Nation – Sentiments, Reactions, and Emotions around the Latest Election Results!
-    </h2>
-""", unsafe_allow_html=True)
-
-
+        st.markdown("""
+            <h2 style='color: #581845 ; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
+                Dive into the Pulse of the Nation – Sentiments, Reactions, and Emotions around the Latest Election Results!
+            </h2>
+        """, unsafe_allow_html=True)
 
         # Step 6: Plot the sentiment counts in a bar chart
         fig, ax = plt.subplots()
@@ -82,4 +79,3 @@ st.markdown("""
         st.pyplot(fig)
     else:
         st.write("Please paste some text to analyze.")
-
