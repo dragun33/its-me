@@ -59,7 +59,7 @@ def classify_sentiments(words, sentiment_dict):
 # Function to plot sentiment analysis results
 def plot_sentiments(sentiment_counts, title="Sentiment Analysis"):
     fig, ax = plt.subplots()
-    ax.bar(sentiment_counts.keys(), sentiment_counts.values(), color='teal')
+    ax.bar(sentiment_counts.keys(), sentiment_counts.values(), color='turquoise')
     plt.xlabel("Sentiments")
     plt.ylabel("Count")
     plt.title(title)
