@@ -59,23 +59,23 @@ if st.button("Analyze Sentiments"):
 
         # Title in teal with larger font size and bold styling
         st.markdown("""
-            <h1 style='color: #C70039; font-size: 60px; font-weight: bold; text-align: center;'>
+            <h1 style='color: #1f77b4; font-size: 60px; font-weight: bold; text-align: center;'>
                 Election Sentiment Analysis
             </h1>
         """, unsafe_allow_html=True)
 
         st.markdown("""
-            <h2 style='color: #581845 ; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
+            <h2 style='color: #ff7f0e ; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
                 Dive into the Pulse of the Nation – Sentiments, Reactions, and Emotions around the Latest Election Results!
             </h2>
         """, unsafe_allow_html=True)
 
-        # Step 6: Plot the sentiment counts in a bar chart
+        # Step 6: Plot the sentiment counts in a bar chart with improved color scheme
         fig, ax = plt.subplots()
-        ax.bar(sentiment_count.keys(), sentiment_count.values(), color='skyblue')
-        plt.xlabel("Sentiment")
-        plt.ylabel("Count")
-        plt.title("Election Sentiment Analysis")
+        ax.bar(sentiment_count.keys(), sentiment_count.values(), color=['#ff9999', '#66b3ff', '#99ff99', '#ffcc99'])
+        plt.xlabel("Sentiment", fontsize=12, color='#333333')
+        plt.ylabel("Count", fontsize=12, color='#333333')
+        plt.title("Election Sentiment Analysis", fontsize=14, color='#333333')
         st.pyplot(fig)
     else:
         st.write("Please paste some text to analyze.")
