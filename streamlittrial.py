@@ -24,15 +24,28 @@ def process_text(text_content):
     return [word for word in words if word not in stop_words]
 
 # Sentiment dictionary for categorizing words
-sentiment_dict = {
-    'modi': 'bjp', 'bjp win': 'bjp', 'narendra modi': 'bjp', 'trust modi': 'bjp',
-    'bjp defeat': 'anti-bjp', 'modi lose': 'anti-bjp', 'fake government': 'anti-bjp',
-    'rahul gandhi win': 'congress', 'congress lead': 'congress', 'congress gains': 'congress',
-    'congress defeat': 'anti-congress', 'rahul failed': 'anti-congress', 'sonia criticized': 'anti-congress',
-    'aap win': 'aap', 'arvind kejriwal': 'aap', 'kejriwal support': 'aap', 'aap defeat': 'anti-aap',
+sentiment_dict =    {
+    'modi': 'support', 'bjp': 'support', 'win': 'support', 'victory': 'support', 'trust': 'support',
+    'success': 'support', 'coalition': 'support', 'nda': 'support', 'people power': 'support',
+
+    # Criticism Terms
+    'defeat': 'criticism', 'lose': 'criticism', 'corruption': 'criticism', 'polarisation': 'criticism',
+    'failure': 'criticism', 'criticism': 'criticism', 'fraud': 'criticism', 'bribery': 'criticism',
+    'conspiracy': 'criticism', 'unfair': 'criticism', 'fake': 'criticism', 'fear': 'criticism',
+
+    # Mixed Sentiments
+    'hope': 'mixed sentiment', 'optimism': 'mixed sentiment', 'concern': 'mixed sentiment',
+    'uncertainty': 'mixed sentiment', 'doubt': 'mixed sentiment', 'expectation': 'mixed sentiment',
+    'confidence': 'mixed sentiment', 'public trust': 'mixed sentiment', 'vitality': 'mixed sentiment',
+    'diversity': 'mixed sentiment', 'federalism': 'mixed sentiment', 'livelihood': 'mixed sentiment',
+    'inflation': 'mixed sentiment', 'unemployment': 'mixed sentiment',
+
+    # Neutral Political Terms
     'candidate': 'neutral', 'voters': 'neutral', 'turnout': 'neutral', 'poll': 'neutral',
-    'hope': 'mixed', 'optimism': 'mixed', 'fear': 'mixed', 'concern': 'mixed', 'uncertainty': 'mixed'
+    'election': 'neutral', 'campaign': 'neutral', 'result': 'neutral', 'party': 'neutral',
+    'coalition government': 'neutral', 'democracy': 'neutral', 'public': 'neutral'
 }
+
 
 # Function to classify sentiments
 def classify_sentiments(words, sentiment_dict):
