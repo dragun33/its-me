@@ -27,7 +27,7 @@ sentiment_dict = {
 # Streamlit UI
 st.markdown("""
     <h1 style='color: #ff2130; font-size: 60px; font-weight: bold; text-align: center;'>
-        Election Sentiment Analysis
+        Election Result Sentiment Analysis
     </h1>
 """, unsafe_allow_html=True)
 
