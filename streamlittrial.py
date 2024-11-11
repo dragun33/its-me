@@ -59,7 +59,7 @@ def classify_sentiments(words, sentiment_dict):
 # Function to plot sentiment analysis results
 def plot_sentiments(sentiment_counts, title="Sentiment Analysis"):
     fig, ax = plt.subplots()
-    ax.bar(sentiment_counts.keys(), sentiment_counts.values(), color='skyblue')
+    ax.bar(sentiment_counts.keys(), sentiment_counts.values(), color='teal')
     plt.xlabel("Sentiments")
     plt.ylabel("Count")
     plt.title(title)
@@ -69,9 +69,9 @@ def plot_sentiments(sentiment_counts, title="Sentiment Analysis"):
 
 import streamlit as st
 
-import streamlit as st
 
-# Title in teal with larger font size and bold styling
+
+
 # Title in teal with larger font size and bold styling
 st.markdown("""
     <h1 style='color: teal; font-size: 60px; font-weight: bold; text-align: center;'>
@@ -79,7 +79,6 @@ st.markdown("""
     </h1>
 """, unsafe_allow_html=True)
 
-# Subheading in maroon with a larger font size, italics, and some padding
 st.markdown("""
     <h2 style='color: #c3195d; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
         Dive into the Pulse of the Nation – Sentiments, Reactions, and Emotions around the Latest Election Results!
