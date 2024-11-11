@@ -80,7 +80,7 @@ st.markdown("""
 
 # Subheading in maroon with a larger font size, italics, and some padding
 st.markdown("""
-    <h2 style='color: maroon; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
+    <h2 style='color: #c3195d; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
         Dive into the Pulse of the Nation – Sentiments, Reactions, and Emotions around the Latest Election Results!
     </h2>
 """, unsafe_allow_html=True)
