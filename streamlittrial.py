@@ -72,8 +72,9 @@ import streamlit as st
 import streamlit as st
 
 # Title in teal with larger font size and bold styling
+# Title in teal with larger font size and bold styling
 st.markdown("""
-    <h1 style='color: teal; font-size: 48px; font-weight: bold; text-align: center;'>
+    <h1 style='color: teal; font-size: 60px; font-weight: bold; text-align: center;'>
         Election Sentiment Analysis
     </h1>
 """, unsafe_allow_html=True)
