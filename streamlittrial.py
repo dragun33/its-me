@@ -85,8 +85,7 @@ st.markdown("""
     </h2>
 """, unsafe_allow_html=True)
 
-# Optional: Add some decorative line between the title and subheading for more separation
-st.markdown("<hr style='border: 2px solid teal;'>", unsafe_allow_html=True)
+
 
 
 
