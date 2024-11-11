@@ -56,7 +56,7 @@ if st.button("Analyze Sentiments"):
         sentiment_count = Counter(emotion_list)
 
         # Step 5: Display the sentiment counts safely using get() to avoid KeyError
-        st.write(f"Support: {sentiment_count.get('support', 0)}")
+        st.write(f"Support: {sentiment_count.get('support', 0)}",color='#ff2130')
         st.write(f"Opposition: {sentiment_count.get('opposition', 0)}")
         st.write(f"Neutral: {sentiment_count.get('neutral', 0)}")
         st.write(f"Mixed Sentiments: {sentiment_count.get('mixed', 0)}")
