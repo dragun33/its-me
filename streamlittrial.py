@@ -63,9 +63,10 @@ if st.button("Analyze Sentiments"):
 
         st.markdown("""
             <h2 style='color: #fafafa ; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
-                Dive into the Pulse of the Nation – Sentiments, Reactions,<span style ="colour:#ff2130 ;"> and Emotions around the Latest Election Results!</span>
+            Dive into the Pulse of the Nation – Sentiments, Reactions,<span style="color:#ff2130;"> and Emotions around the Latest Election Results!</span>
             </h2>
         """, unsafe_allow_html=True)
+
 
         # Step 6: Plot the sentiment counts in a bar chart with improved color scheme
         fig, ax = plt.subplots()
