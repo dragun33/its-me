@@ -69,7 +69,7 @@ if st.button("Analyze Sentiments"):
 
         # Step 6: Plot the sentiment counts in a bar chart with improved color scheme
         fig, ax = plt.subplots()
-        ax.bar(sentiment_count.keys(), sentiment_count.values(), color=['#ff9999', '#66b3ff', '#99ff99', '#ffcc99'])
+        ax.bar(sentiment_count.keys(), sentiment_count.values(), color=['#ff2130', '#1c1a1a', '#ff2130', '#1c1a1a'])
         plt.xlabel("Sentiment", fontsize=12, color='#333333')
         plt.ylabel("Count", fontsize=12, color='#333333')
         plt.title("Election Sentiment Analysis", fontsize=14, color='#333333')
