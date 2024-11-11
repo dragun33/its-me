@@ -25,7 +25,11 @@ sentiment_dict = {
 }
 
 # Streamlit UI
-st.title("Election Result Sentiment Analysis")
+st.markdown("""
+    <h1 style='color: #ff2130; font-size: 60px; font-weight: bold; text-align: center;'>
+        Election Sentiment Analysis
+    </h1>
+""", unsafe_allow_html=True)
 
 # Text input area
 text_input = st.text_area("Paste the election-related text here:")
@@ -51,18 +55,11 @@ if st.button("Analyze Sentiments"):
         # Step 4: Count the occurrences of each sentiment using Counter
         sentiment_count = Counter(emotion_list)
 
-        # Step 5: Display the sentiment counts
-        st.write(f"Support: {sentiment_count['support']}")
-        st.write(f"Opposition: {sentiment_count['opposition']}")
-        st.write(f"Neutral: {sentiment_count['neutral']}")
-        st.write(f"Mixed Sentiments: {sentiment_count['mixed']}")
-
-        # Title in teal with larger font size and bold styling
-        st.markdown("""
-            <h1 style='color: #ff2130; font-size: 60px; font-weight: bold; text-align: center;'>
-                Election Sentiment Analysis
-            </h1>
-        """, unsafe_allow_html=True)
+        # Step 5: Display the sentiment counts safely using get() to avoid KeyError
+        st.write(f"Support: {sentiment_count.get('support', 0)}")
+        st.write(f"Opposition: {sentiment_count.get('opposition', 0)}")
+        st.write(f"Neutral: {sentiment_count.get('neutral', 0)}")
+        st.write(f"Mixed Sentiments: {sentiment_count.get('mixed', 0)}")
 
         st.markdown("""
             <h2 style='color: #ff7f0e ; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
@@ -79,3 +76,4 @@ if st.button("Analyze Sentiments"):
         st.pyplot(fig)
     else:
         st.write("Please paste some text to analyze.")
+
