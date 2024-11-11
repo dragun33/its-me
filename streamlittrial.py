@@ -62,7 +62,7 @@ if st.button("Analyze Sentiments"):
         st.write(f"Mixed Sentiments: {sentiment_count.get('mixed', 0)}")
 
         st.markdown("""
-            <h2 style='color: #ff7f0e ; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
+            <h2 style='color: ##fffcfd ; font-size: 28px; font-style: italic; text-align: center; padding: 10px;'>
                 Dive into the Pulse of the Nation – Sentiments, Reactions, and Emotions around the Latest Election Results!
             </h2>
         """, unsafe_allow_html=True)
